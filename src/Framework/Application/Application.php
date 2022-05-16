@@ -32,12 +32,12 @@ final class Application
     public function init()
     {
 
-        $this->installComponents($this->config);
+        $this->installComponents();
     }
 
-    public function installComponents($config)
+    private function installComponents(): void
     {
-
+        $config = $this->config;
         if (!empty($config['components']) && count($config['components']) > 0) {
             foreach ($config['components'] as $k => $v) {
                 $this->components[$k] = new $v;
@@ -46,15 +46,18 @@ final class Application
 
     }
 
-    public function __get($name){
+    public function __get($name)
+    {
         return isset($this->components[$name]) ? $this->components[$name] : null;
     }
 
-    public function __set($name,$val){
+    public function __set($name, $val)
+    {
 
     }
 
-    public function __isset($name){
+    public function __isset($name)
+    {
 
     }
 

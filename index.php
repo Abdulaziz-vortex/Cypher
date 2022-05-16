@@ -39,6 +39,7 @@ $app->init();
 
 Singletone::$app->pubsub->subscribe('DELETE-ITEM', (new ProjectHandler));
 Singletone::$app->pubsub->subscribe('FORM_RECEIVED', (new FormHandler));
+Singletone::$app->pubsub->subscribe('FORM_RECEIVED', (new \App\Handlers\NotifyHandler));
 
 if (isset($_POST['form'])) {
     Singletone::$app->pubsub->publish('FORM_RECEIVED', Singletone::$app->request->post('*'));

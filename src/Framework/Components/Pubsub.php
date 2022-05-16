@@ -13,7 +13,7 @@ class Pubsub
              * @var $obj EventHandler
              */
             foreach ($this->events[$event_name] as $obj) {
-                if (!empty($context)) {
+                if ($context !== null) {
                     $obj->setContext($context);
                 }
                 $obj->execute();

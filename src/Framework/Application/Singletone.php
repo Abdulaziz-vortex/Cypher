@@ -4,7 +4,7 @@ namespace Framework\Application;
 
 class Singletone
 {
-    private static $instance;
+    public static $instance;
     public static Application $app;
 
     private function __construct($app)
